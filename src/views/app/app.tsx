@@ -19,6 +19,9 @@ export const App = ( {}: AppProps ) => {
     return (
         <div className="container mx-auto mt-8">
             <div className="grid grid-cols-12 gap-10">
+                <section className="col-span-full">
+                    <h1 className="text-4xl text-center underline">Vegan Chocolate Vending Machine &#127851;</h1>
+                </section>
                 <section className="grid grid-cols-12 col-span-full gap-4">
                     <div className="col-span-2">
                         <h2 className="text-3xl">Insert Coins</h2>
