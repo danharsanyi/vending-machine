@@ -13,7 +13,8 @@ export const App = ( {}: AppProps ) => {
     const [ state, dispatch ] = useReducer( vendingMachineReducer, initialState );
     const { credit, lastPurchased } = state;
 
-    const hasCredit = credit > 0;
+    const cheapestProductPrice = _.min( _.map( PRODUCTS, p => p.price ) );
+    const canAffordCheapestProduct = cheapestProductPrice ? credit >= cheapestProductPrice : false;
 
     return (
         <div className="container mx-auto mt-8">
@@ -36,8 +37,8 @@ export const App = ( {}: AppProps ) => {
                 </section>
                 <section className="grid grid-cols-12 col-span-full">
                     <div className="col-span-2">
-                        <h2 className="text-3xl">Select Item</h2>
-                        <p className="text-sm">Click an item to buy</p>
+                        <h2 className={ clsx( "text-3xl", { "text-gray-400": !canAffordCheapestProduct } )}>Select Item</h2>
+                        <p className={ clsx( "text-sm", { "text-gray-400": !canAffordCheapestProduct } )}>Click an item to treat yourself!</p>
                     </div>
                     <div className="grid grid-cols-6 auto-cols-min gap-2 col-span-8 justify-center">
                         { _.map( PRODUCTS, ( product: Product, key: string ) => {
@@ -59,11 +60,11 @@ export const App = ( {}: AppProps ) => {
                 </section>
                 <section className="grid grid-cols-12 col-span-full">
                     <div className="col-span-2">
-                        <h2 className="text-3xl">Enjoy!</h2>
+                    <h2 className={ clsx( "text-3xl", { "text-gray-400": !lastPurchased } )}>Enjoy!</h2>
                     </div>
                     { lastPurchased && (
                         <div className="flex flex-col col-span-8 justify-center text-center">
-                            <h2 className="text-3xl mb-2">Enjoy your { lastPurchased }!</h2>
+                            <h2 className="text-3xl mb-2">Enjoy your { lastPurchased }! &#128523;</h2>
                         </div>
                     )}
                 </section>
