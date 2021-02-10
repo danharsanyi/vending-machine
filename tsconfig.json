@@ -1,5 +1,5 @@
 {
-  "include": ["src", "types"],
+  "include": ["src", "types", "src/views/app/app.tsx", "src/views/app/app.test.tsx"],
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
