@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import _ from 'lodash';
 import clsx from 'clsx';
 import { formatCurrency } from '../../utils/utils';
-import { CURRENCY, PRODUCTS, Product } from '../../utils/constants';
+import { VALID_CURRENCY, PRODUCTS, Product } from '../../utils/constants';
 import { TYPES, vendingMachineReducer, initialState } from '../../modules/vending-machine/reducer';
 import * as Views from '../index';
 import './app.css';
@@ -29,7 +29,7 @@ export const App = ( {}: AppProps ) => {
                     </div>
                     <div className="col-span-8 grid grid-cols-6 gap-2 h-16">
                         <button className="transition duration-100 ease-in bg-gray-500 text-gray-800 opacity-50 font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none" onClick={ () => alert( 'This vending machine does not accept 5c coins.' )}>{ formatCurrency( 5 / 100 ) }</button>
-                        { CURRENCY.map( c => <button key={ c } className="transition duration-100 ease-in bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none" onClick={ () => dispatch({ type: TYPES.INSERT, payload: c })}>{ formatCurrency( c / 100 ) }</button> )}
+                        { VALID_CURRENCY.map( c => <button key={ c } className="transition duration-100 ease-in bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none" onClick={ () => dispatch({ type: TYPES.INSERT, payload: c })}>{ formatCurrency( c / 100 ) }</button> )}
                     </div>
                     <div className="flex flex-col col-span-2 justify-center items-center">
                         <div className="c-credit_screen flex col-span-2 text-center bg-black justify-center items-center mb-2 p-2 rounded-sm">
