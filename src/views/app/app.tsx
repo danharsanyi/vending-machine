@@ -54,8 +54,8 @@ export const App = ( {}: AppProps ) => {
                                     dispatch({ type: TYPES.PURCHASE, payload: product });
                                 }}>
                                     <h4 className="text-2xl">{ title }</h4>
-                                    <h5 className="absolute text-lg font-bold bg-green-500 top-0 right-0 rounded-tr-lg px-1">{ formatCurrency( price / 100 ) }</h5>
-                                    <h6 className={ clsx("text-sm", { "text-green-500": hasSufficientCredit }) }>{ hasSufficientCredit ? "BUY!" : "Insufficient Credit" }</h6>
+                                    <h5 className="absolute text-white text-sm font-bold bg-green-600 top-0 right-0 rounded-tr-lg px-2">{ formatCurrency( price / 100 ) }</h5>
+                                    <h6 className={ clsx("text-sm", { "text-green-600": hasSufficientCredit }) }>{ hasSufficientCredit ? "BUY!" : "Insufficient Credit" }</h6>
                                 </button>
                             )
                         }) }
