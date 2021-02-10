@@ -2,28 +2,9 @@ import React, { useState } from 'react';
 import _ from 'lodash';
 import clsx from 'clsx';
 import { formatCurrency } from '../../utils/utils';
+import { PRODUCTS, Product } from '../../utils/constants';
 import * as Views from '../index';
 import './app.css';
-
-interface Product {
-    price: number,
-    title: string,
-}
-
-export const PRODUCTS = {
-    'caramel': {
-        price: 250,
-        title: 'Caramel'
-    },
-    'hazelnut': {
-        price: 310,
-        title: 'Hazelnut'
-    },
-    'organicraw': {
-        price: 200,
-        title: 'Organic Raw'
-    },
-}
 
 interface AppProps {};
 
