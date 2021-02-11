@@ -53,7 +53,7 @@ export const App = ( {}: AppProps ) => {
                                 const hasSufficientCredit = price <= credit;
                                 const classes = clsx( "relative transition duration-100 ease-in font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none px-4 py-2 col-span-2", hasSufficientCredit ? "bg-white text-gray-900" : "bg-gray-500 opacity-50 text-gray-800" );
                                 return (
-                                    <button key={ key } className={ classes } onClick={() => {
+                                    <button title={ title } key={ key } className={ classes } onClick={() => {
                                         if ( !hasSufficientCredit ) return dispatch({ type: TYPES.ALERT, payload: 'Insufficient credit. Please insert more coins.' });
                                         dispatch({ type: TYPES.PURCHASE, payload: product });
                                     }}>
