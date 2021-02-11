@@ -30,7 +30,7 @@ Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch 
 - [x] Ensure correct amount of money is entered prior to making selection
 - [x] Ability for user to make a selection
 - [x] Separate presentation logic from business logic
-- [ ] Unit tests
+- [x] Unit tests
 
 ### Stretch
 
